@@ -1,0 +1,48 @@
+<style>
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: rgb(93, 209, 224);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+</style>
+<mat-card class="example-card">
+  <mat-card-header class="bg-success" style="color:white;">
+    <mat-card-title style="color:white; font-weight: bold;">User, Database and Hosting Management</mat-card-title>
+    <mat-card-subtitle style="color:white;">These are managed by external sources. The links to their respective control
+      panels are provided below. Note: You'll need the login credentials for the control panels.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-content>
+      <a href="https://mlab.com/databases/imdaad" class="tooltip"><span class="tooltiptext">A MongoDB database for
+          imdaad is hosted at Mlab.</span><img src="assets/images/mlab2.png"
+          style="width:450px; height:200px; border:solid; border-radius: 15px; margin:10px; border-width: 2px; border-color: rgb(190, 190, 190);"></a>
+      <a href="https://console.firebase.google.com/u/0/project/imdaad-69/authentication/users" class="tooltip"><span
+          class="tooltiptext">User data and authentication is managed at Imdaad Firebase Authentication
+          Console.</span><img src="assets/images/firebase_auth.png"
+          style="width:450px; height:200px; border:solid; border-radius: 15px; margin:10px; border-width: 2px; border-color: rgb(190, 190, 190);"></a>
+      <a href="https://console.firebase.google.com/u/0/project/imdaad-69/hosting/main" class="tooltip"><span
+          class="tooltiptext">Hosting is managed at Imdaad Firebase Hosting Console.</span><img
+          src="assets/images/firebase_hosting.png"
+          style="width:450px; height:200px; border:solid; border-radius: 15px; margin:10px; border-width: 2px; border-color: rgb(190, 190, 190);"></a>
+    </mat-card-content>
+
+  </mat-card-content>
+</mat-card>

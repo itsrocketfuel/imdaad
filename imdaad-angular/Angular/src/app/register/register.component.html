@@ -1,0 +1,97 @@
+<app-spinner></app-spinner>
+
+<body>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <img src="assets/images/charity.png" alt="homepage" class="dark-logo"
+        style="width:50px; height:50px; position: relative; left: 26px; margin-top: 0px;">
+      <a href="/home"
+        style="font-size: 30px; color: rgb(253, 254, 255); position: absolute; left: 100px; top:18px;"><span
+          style="font-size:24px;">Imdaad Admin Panel</span></a>
+      <span class="example-fill-remaining-space"></span>
+      <span class="align-center"></span>
+      <span class="example-spacer"></span>
+      <a href="/login"><button mat-raised-button style="margin-left: 1190px; margin-top: 5px;">Sign In</button></a>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-card class="example-card" style="height:320px;">
+    <mat-card-header>
+      <mat-card-title class="example-full-widthtop" style="margin-left: 130px;">Register as an Administrator</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form" style="width:100px;">
+        <table class="example-full-width" cellspacing="0">
+          <!--<tr>
+            <td>
+              <mat-form-field class="example-full-width1">
+                <input matInput placeholder="First Name" [(ngModel)]="firstname" name="fname" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width2">
+                <input matInput placeholder="Last Name" [(ngModel)]="lastname" name="lname" required>
+              </mat-form-field>
+            </td>
+          </tr>-->
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width3">
+                <input matInput placeholder="E-mail" [(ngModel)]="email" name="mail" type="email" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width4">
+                <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="pwd" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width5">
+                <input matInput placeholder="Confirm Password" [(ngModel)]="confirmpassword" type="password" name="cpwd"
+                  required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <!--<tr>
+            <td>
+              <mat-form-field class="example-full-width6">
+                <mat-label>Select Security Question</mat-label>
+                <mat-select name="ques" [(ngModel)]="question" (change)="selected()">
+                  <mat-option *ngFor="let question of questions" [value]="question.value" (click)="selected()">
+                    {{question.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width7">
+                <input matInput placeholder="Answer Security Question" [(ngModel)]="answer" type="text" name="anz"
+                  required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <br>
+          <div class="example-full-width8">
+            <tr class="example-full-width8">
+              <td class="example-full-width8">Select Account Type :
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="accountselected" name="acc">
+                  <mat-radio-button class="example-full-width9" value="Volunteer/Donor">Volunteer & Donor
+                  </mat-radio-button>
+                  <mat-radio-button class="example-full-width10" value="Restaurant">Restaurant</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+          </div>-->
+        </table>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="register()" color="primary" id="example-full-width11" style="margin-top:-100px">Submit</button>
+      <a href="/login"><button mat-raised-button id="example-full-width12">Already a member? Sign in</button></a>
+    </mat-card-actions>
+  </mat-card>
+</body>

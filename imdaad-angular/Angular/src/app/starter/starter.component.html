@@ -1,0 +1,101 @@
+<mat-card>
+  <mat-card-header class="bg-success" style="color:white;">
+    <mat-card-title style="color:white; font-weight: bold;">List of Causes</mat-card-title>
+    <mat-card-subtitle style="color:white;">All Imdaad Administrators and User generated causes are shown below for management.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h3>Active Causes: </h3>
+    <mat-accordion>
+      <table style="width: 100%">
+        <tr *ngFor="let cause of cause_result">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-description style="color:black">
+               <b style="margin-right: 10px;">Title: </b> {{cause.title}} 
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <b>Submitted by: </b>{{cause.email}}<br><br>
+            <b>User Name: </b>{{cause.fname}}<br><br>
+            <b>Needy Name: </b>{{cause.name}}<br><br>
+            <b>Age/Age Group: </b>{{cause.age}}<br><br>
+            <b>Phone Number: </b>{{cause.phoneno}}<br><br>
+            <b>Description: </b>{{cause.problem}}<br><br>
+            <b>Requirements: </b>{{cause.req}}<br><br>
+            <div class="container"
+              style="display:flex; flex-direction: row; justify-content: center; margin-bottom:15px;">
+              <button mat-raised-button color="primary" (click)="deleteCause(cause._id)">Delete</button>
+              <input hidden type="submit">
+            </div>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-description style="color:black;">
+                  Click here to Update this cause.
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Give Your Cause A Title</mat-label>
+                <input matInput placeholder="Title" [(ngModel)]="title" name="title">
+                <mat-hint>Hint: Sum up your cause in a short sentence.</mat-hint>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field appearance="outline">
+                <mat-label>Person or Group</mat-label>
+                <input matInput placeholder="Name" [(ngModel)]="name" name="name">
+
+                <mat-hint>Hint: Write the names or mention the group of people.</mat-hint>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field appearance="outline">
+                <mat-label>Age or Age Group</mat-label>
+                <input matInput placeholder="Age" [(ngModel)]="age" name="age">
+
+                <mat-hint>Hint: Write the ages or a group of age for the needy.</mat-hint>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input type="tel" matInput placeholder="03xx-xxxxxxx" [(ngModel)]="phoneNumber" name="phoneNumber">
+
+                <mat-hint>Hint: It will be used by donors to contact those people directly.</mat-hint>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field appearance="outline">
+                <mat-label>Describe the problem</mat-label>
+                <textarea matInput placeholder="Problem Description" [(ngModel)]="description"
+                  name="description"></textarea>
+                <!--cdkTextareaAutosize#autosize="cdkTextareaAutosize" -->
+
+                <mat-hint>Hint: Basically, explain the reason for this cause.</mat-hint>
+              </mat-form-field>
+              <br><br>
+              <mat-form-field appearance="outline">
+                <mat-label>Enter Requirements</mat-label>
+                <textarea matInput placeholder="Describe how they can be helped" [(ngModel)]="requirements"
+                  name="requirements"></textarea>
+                <!--cdkTextareaAutosize #autosize="cdkTextareaAutosize" -->
+
+                <mat-hint>Hint: Explain what is needed to help the problem you mentioned. </mat-hint>
+              </mat-form-field>
+              <br><br>
+              <!-- <div class="container">
+                      <button mat-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+                      <input hidden type="file" multiple #fileInput [(ngModel)]="documents" name="documents">
+                      <mat-label style="font-size: 14px; margin-left:3px;"> Upload a picture of your CNIC, front and back. Upload any
+                        other documents for proof of this cause.</mat-label>
+                    </div>
+                    <br>-->
+              <div class="container" style="display:flex; flex-direction: row; justify-content: center;">
+                <button mat-raised-button color="primary" (click)="updateCause(cause._id)">Update</button>
+                <input hidden type="submit">
+              </div>
+            </mat-expansion-panel>
+            <!--<b>Documents: </b>{{cause.documents}}-->
+          </mat-expansion-panel>
+          <br>
+        </tr>
+      </table>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

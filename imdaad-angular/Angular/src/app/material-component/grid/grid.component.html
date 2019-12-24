@@ -1,0 +1,94 @@
+             <div fxLayout="row" fxLayoutWrap="wrap">
+              <!-- column -->    
+              <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                  <mat-card>
+                      <mat-card-content>
+                          <!-- Row -->
+                          <div fxLayout="row" fxLayoutWrap="wrap">
+                              <!-- column -->
+                              <div fxFlex.gt-sm="50" fxFlex.gt-xs="50">
+                                 <h1><b>Under Development</b></h1>
+                              </div>
+                          </div>      
+                          <div class="container mt-5">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h2 class="text-left">Firebase Demo</h2>
+                                </div>
+                                <div class="col-md-6 text-right"> 
+                                  <input type="text" placeholder="Title" [(ngModel)]="title" #ctrl="ngModel" />
+                                  <button (click)="create()">Add Item</button>            
+                                </div>
+                            </div>
+                            <table class="table table-bordered mt-3">
+                              <thead>
+                                <tr>
+                                  <th>ID</th>
+                                  <th>Title</th>
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngIf="processing"><td class="text-center" colspan="3">Loading...</td></tr>
+                                  <tr *ngIf="!processing &amp;&amp; todos.length < 1"><td class="text-center" colspan="3">No record found</td></tr>
+                                  <tr *ngFor="let item of todos; let i = index;">
+                                      <td width="20">{{i+1}}</td>
+                                      <td>{{item.title}}</td>
+                                      <td width="100">                
+                                          <button type="button" class="btn btn-danger mr-1" (click)="delete(item.id)">Delete</button>
+                                      </td>
+                                    </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                      </mat-card-content>
+                  </mat-card>
+              </div>
+              <!-- column -->    
+            </div>
+<!-- ============================================================== -->
+<!-- Fixed height Card Grid-->
+<!-- ============================================================== -->
+<!-- <div fxLayout="row">
+    <div fxFlex.gt-sm="100%" >
+        <mat-card>
+            <mat-card-content>
+              <mat-card-title>Fixed height grid-list</mat-card-title>
+                <mat-card-subtitle><code>&lt;mat-grid-list&gt;</code> is a two-dimensional list view that arranges cells into grid-based layout. See Material Design spec. <code><a href="https://material.io/guidelines/components/grid-lists.html">Official Doc here</a></code></mat-card-subtitle>
+              <mat-grid-list cols="4" rowHeight="100px">
+                  <mat-grid-tile
+                      *ngFor="let tile of tiles"
+                      [colspan]="tile.cols"
+                      [rowspan]="tile.rows"
+                      [style.background]="tile.color">
+                    {{tile.text}}
+                  </mat-grid-tile>
+                </mat-grid-list>  
+            </mat-card-content>        
+        </mat-card>
+    </div>
+</div>    -->
+<!-- ============================================================== -->
+<!-- Basic Card Grid-->
+<!-- ============================================================== -->
+<!-- <mat-card>
+    <mat-card-content>
+      <mat-card-title>Basic grid-list</mat-card-title>
+      <mat-card-subtitle><code>&lt;mat-grid-list&gt;</code> is a two-dimensional list view that arranges cells into grid-based layout. See Material Design spec. <a href="https://material.io/guidelines/components/grid-lists.html">here</a></mat-card-subtitle>
+      <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile>2</mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+      </mat-grid-list>  
+    </mat-card-content>        
+</mat-card>
+
+-->
+
+<!-- ============================================================== -->
+<!-- Simple four boxes Row -->
+<!-- ============================================================== -->
+
+
+

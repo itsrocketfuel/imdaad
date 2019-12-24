@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-header class="bg-success" style="color:white;">
+    <mat-card-title style="color:white; font-weight: bold;">List of Pending Drop-off Approvals.</mat-card-title>
+    <mat-card-subtitle style="color:white;">All user generated drop-off location submission requests are shown below for
+      management.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h3>Pending Approvals: </h3>
+    <mat-accordion>
+      <table style="width: 100%">
+        <tr *ngFor="let dropOff of dropOffs">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-description style="color:black">
+                <b style="margin-right: 10px;">Title: </b> {{dropOff.title}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="container" fxLayout="column" fxLayoutAlign="center">
+
+
+              <agm-map [latitude]="dropOff.lati" [longitude]="dropOff.longi" [zoom]="zoomx">
+                <agm-marker></agm-marker>
+                <agm-marker [latitude]="latitudex" [longitude]="longitudex" [label]="label2"></agm-marker>
+                <agm-marker [latitude]="dropOff.lati" [longitude]="dropOff.longi">
+                  <agm-info-window><b>Title: </b>{{dropOff.title}}<br><b>Phone#: </b>
+                    {{dropOff.phoneno}}<br><b>Description: </b>{{dropOff.problem}}
+                  </agm-info-window>
+                </agm-marker>
+              </agm-map>
+
+            </div>
+
+            <br>
+            <b>Phone#: </b>{{dropOff.phoneno}}<br><br>
+            <b>Descreiption: </b>{{dropOff.problem}}<br><br>
+            <div class="container"
+              style="display:flex; flex-direction: row; justify-content:center; margin-bottom:15px;">
+              <button matTooltip="Approving will add this location to the Imdaad drop-off locations." mat-raised-button
+                color="primary" (click)="approveDropOff(dropOff._id)" style="margin-left:0px;">Approve</button>
+              <input hidden type="submit">
+
+              <button matTooltip="Ignoring will remove this drop-off request." mat-raised-button color="primary"
+                (click)="deleteApproval(dropOff._id)" style="margin-left:10px;">Ignore</button>
+              <input hidden type="submit">
+            </div>
+          </mat-expansion-panel>
+          <br>
+        </tr>
+      </table>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

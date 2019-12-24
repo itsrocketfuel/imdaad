@@ -1,0 +1,65 @@
+.example-button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 700px) {
+
+  .mcard {
+    margin-left: 13px;
+    width: 90%;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 701px) {
+
+  .mcard {
+    margin-left: 50px;
+    width: 90%;
+    height: 390px;
+  }
+
+  .mcard2 {
+    margin-left: 50px;
+    width: 90%;
+    height: 390px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+
+  .mcard2 {
+    margin-left: 13px;
+    width: 90%;
+    height: 600px;
+  }
+
+  .inputs {
+    width: 80%;
+    margin-left: 23px;
+  }
+
+  .labels {
+    font-size: 13px;
+  }
+
+  .labelsSmall {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 701px) {
+
+  .mcard2 {
+    margin-left: 50px;
+    width: 90%;
+    height: 510px;
+  }
+
+  .inputs {
+    width: 95%;
+    margin-left: 23px;
+  }
+}

@@ -1,0 +1,89 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <!-- column -->
+  <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-header class="bg-success" style="color:white;">
+        <mat-card-title style="color:white; font-weight: bold;">Submit a drop-off location</mat-card-title>
+        <mat-card-subtitle style="color:white;">Place a marker on the map to set that location as a drop-off point.
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="container" fxLayout="column" fxLayoutAlign="center">
+ 
+             <!--<div fxFlex>
+                <agm-map [latitude]="latitudex" [longitude]="longitudex" [scrollwheel]="false" [zoom]="zoomx">
+                  <agm-marker [latitude]="latitudex" [longitude]="longitudex"></agm-marker>
+                </agm-map>
+              </div>--> 
+           <mat-label>Search Maps:</mat-label>
+              <div 
+                   class="autocomplete-container">
+                <mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                              (onLocationSelected)="onLocationSelected($event)">
+                </mat-google-maps-autocomplete>
+              </div>
+           
+            </div>
+    <!--     <div class="container">
+          <div class="form-group">
+              <label>Enter address</label>
+              <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+            </div>
+
+            <agm-map [latitude]="latitudex" [longitude]="longitudex" [zoom]="zoomx">
+                <agm-marker [latitude]="latitudex" [longitude]="longitudex" [markerDraggable]="true"
+                  (dragEnd)="markerDragEnd($event)"></agm-marker>
+              </agm-map>
+
+              <h5>Address: {{address}}</h5>
+              <div>Latitude: {{latitudex}}</div>
+              <div>Longitude: {{longitudex}}</div>
+              </div> -->
+              <br>
+
+        <agm-map [latitude]="latitudex" [longitude]="longitudex"  [zoom]="zoomx" (mapClick)="onChooseLocation($event)" (dragEnd)="markerDragEnd($event)">
+          <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen" [label]="label">
+          </agm-marker>
+          <agm-marker [latitude]="latitudex" [longitude]="longitudex" [label]="label2"></agm-marker>
+          <agm-marker [latitude]="dropOff.lati" [longitude]="dropOff.longi" *ngFor="let dropOff of dropOff_result">
+            <agm-info-window><b>Title: </b>{{dropOff.title}}<br><b>Phone#: </b> {{dropOff.phoneno}}<br><b>Description: </b>{{dropOff.problem}}
+              <br>
+              <button mat-raised-button color="primary" (click)="deleteMarker(dropOff._id)" style="font-size:12px; width:40px; height:25px; margin-top:3px;"><span style="position:relative; bottom:6px; right:2px;">Delete</span></button>
+              <input hidden type="submit">
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
+
+
+        <br><br>
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Enter a title for this drop-off location." [(ngModel)]="title" name="title">
+
+          <mat-hint>This title will be name of the drop-off location that you've entered.</mat-hint>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input type="tel" matInput placeholder="03xx-xxxxxxx" [(ngModel)]="phoneNumber" name="phoneNumber">
+
+          <mat-hint>If applies, enter the phone number for that location.</mat-hint>
+        </mat-form-field>
+
+
+        <br><br>
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Write a description for this location." [(ngModel)]="description" name="description"></textarea>
+          <mat-hint>e.g. This place collects clothes and distributes them to the needy. </mat-hint>
+        </mat-form-field>
+        <br><br>
+        <div class="container" style="display:flex; flex-direction: row; justify-content: center;">
+          <button mat-raised-button color="primary" (click)="submitDropOff()">Submit</button>
+          <input hidden type="submit">
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

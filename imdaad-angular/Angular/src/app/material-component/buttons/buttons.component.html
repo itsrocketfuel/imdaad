@@ -1,0 +1,61 @@
+<mat-card style="justify-content: center;">
+  <mat-card-content>
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Profile Reports">
+            <mat-accordion>
+              <table style="width: 100%">
+                <br>
+                <tr *ngFor="let profile of profileReports">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-description style="color:black">
+                        <b style="margin-right: 10px;">Account Email: </b> {{profile.email}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <b>First Name: </b>{{profile.fname}}<br><br>
+                    <b>Last Name: </b>{{profile.lname}}<br><br>
+                    <b>Reason: </b>{{profile.reason}}<br><br>
+                    <div class="container"
+                      style="display:flex; flex-direction: row; justify-content: center; margin-bottom:15px;">
+                      <button matTooltip="Deleting will delete this report as well as the concerned user profile!" mat-raised-button color="primary" (click)="deleteReportedProfile(profile.email)" style="margin-right:10px">Delete</button>
+                      <input hidden type="submit">
+                      <button matTooltip="Ignoring will remove this report permanently." mat-raised-button color="primary" (click)="ignoreReportedProfile(profile._id)" style="margin-left:10px">Ignore</button>
+                      <input hidden type="submit">
+                    </div>
+                  </mat-expansion-panel>
+                  <br>
+                </tr>
+              </table>
+            </mat-accordion>
+
+      </mat-tab>
+      <mat-tab label="Cause Reports">
+          <mat-accordion>
+              <table style="width: 100%">
+                <br>
+                <tr *ngFor="let cause of causeReports">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-description style="color:black">
+                        <b style="margin-right: 10px;">Cause Title: </b> {{cause.title}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <b>Name: </b>{{cause.name}}<br><br>
+                    <b>Email: </b>{{cause.semail}}<br><br>
+                    <b>Reason: </b>{{cause.reason}}<br><br>
+                    <div class="container"
+                      style="display:flex; flex-direction: row; justify-content: center; margin-bottom:15px;">
+                      <button matTooltip="Deleting will delete this report as well as the concerned cause!" mat-raised-button color="primary" (click)="deleteReportedCause(cause.title)" style="margin-right:10px">Delete</button>
+                      <input hidden type="submit">
+                      <button matTooltip="Ignoring will remove this report permanently." mat-raised-button color="primary" (click)="ignoreReportedCause(cause._id)" style="margin-left:10px">Ignore</button>
+                      <input hidden type="submit">
+                    </div>
+                  </mat-expansion-panel>
+                  <br>
+                </tr>
+              </table>
+            </mat-accordion>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
